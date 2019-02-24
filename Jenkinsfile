@@ -3,6 +3,7 @@ pipeline {
 		docker{
 			image 'maven:3.5-alpine'
 			label 'vm'
+			args  '-e PROXY_HOST=web-proxy.corp.hpecorp.net -e PROXY_PORT=8080
 		}
 	}
     stages {
