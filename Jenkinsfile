@@ -3,7 +3,7 @@ pipeline {
 		docker{
 			image 'maven:3.5-alpine'
 			label 'vm'
-			args  '-e http_proxy=http://web-proxy.corp.hpecorp.net:8080'
+			args  '-e JAVA_OPTS=-Dhttp.proxyHost=web-proxy.corp.hpecorp.net -Dhttp.proxyPort=8080 -Dhttps.proxyHost=web-proxy.corp.hpecorp.net -Dhttps.proxyPort=8080'
 		}
 	}
     stages {
