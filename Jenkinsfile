@@ -1,9 +1,9 @@
 pipeline {
     agent { 
 		docker{
-			image 'alirizasaral/maven-with-proxy:latest'
+			image 'maven:3.5-alpine'
 			label 'vm'
-			args  '-e "PROXY_HOST=web-proxy.corp.hpecorp.net" -e "PROXY_PORT=8080" -e "PROXY_PROTOCOL=http"'
+			args  '-v $HOME/.m2:/root/.m2:z -u root'
 		}
 	}
     stages {
